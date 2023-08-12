@@ -10,9 +10,6 @@ const config = {
 		alias: {
 			db: '/src/db.js',
 			img: '/src/images'
-		},
-		csrf: {
-			checkOrigin: false
 		}
 	}
 };
