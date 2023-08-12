@@ -1,10 +1,17 @@
 <script>
 	import Nav from '$lib/Nav.svelte';
+	import Notify from '$lib/Notify.svelte';
+	export let data;
 </script>
 
 <div class="wrapper">
 	<div class="nav">
-		<Nav />
+		<div class="menu">
+			<Nav />
+		</div>
+		<div class="notifications">
+			<Notify count={data.notifications.count} />
+		</div>
 	</div>
 
 	<div class="content">
@@ -24,5 +31,13 @@
 	.footer {
 		text-align: center;
 		margin: 20px 0;
+	}
+
+	.menu {
+		display: inline-block;
+	}
+
+	.notifications {
+		float: right;
 	}
 </style>
