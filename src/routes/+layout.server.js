@@ -1,6 +1,6 @@
-export function load() {
-	console.log('notification loaded');
-	return {
+export function load({ cookies }) {
+	console.log(cookies);
+	const data = {
 		notifications: {
 			count: 2,
 			items: [
@@ -19,4 +19,11 @@ export function load() {
 			]
 		}
 	};
+	if (cookies.get('identity') === '1') {
+		data.user = {
+			id: 1,
+			name: 'Jack'
+		};
+	}
+	return data;
 }
