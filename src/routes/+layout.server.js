@@ -1,5 +1,6 @@
+import users from '$lib/users.json';
+
 export function load({ cookies }) {
-	console.log(cookies);
 	const data = {
 		notifications: {
 			count: 2,
@@ -19,11 +20,10 @@ export function load({ cookies }) {
 			]
 		}
 	};
-	if (cookies.get('identity') === '1') {
-		data.user = {
-			id: 1,
-			name: 'Jack'
-		};
+	const exists = users.filter((user) => user.identity === cookies.get('identity'));
+	if (exists.length) {
+		const { password, ...user } = { ...exists[0] };
+		data.user = user;
 	}
 	return data;
 }

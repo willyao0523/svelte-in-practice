@@ -1,6 +1,11 @@
 <script>
 	import { enhance } from '$app/forms';
 	export let form;
+	let comment = '';
+	export const snapshot = {
+		capture: () => comment,
+		restore: (item) => (comment = item)
+	};
 </script>
 
 <div class="wrap">
@@ -8,7 +13,7 @@
 		<p>{form.msg}</p>
 	{/if}
 	<form method="POST" action="?/create" use:enhance>
-		<label>Comment <input name="comment" type="text" /></label>
+		<label>Comment <input name="comment" type="text" bind:value={comment} /></label>
 		<button>Submit</button>
 		<button formaction="?/star">Star</button>
 		<button formaction="?/reply">Reply</button>
