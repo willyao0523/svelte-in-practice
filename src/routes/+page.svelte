@@ -1,10 +1,8 @@
 <script>
-	let name = 'World';
+	import db from 'db';
+	import url from 'img/demo.png';
+	let status = db.connection;
 </script>
 
-<form>
-	<label for="name">What is your name?</label>
-	<input type="text" name="name" id="name" bind:value={name} />
-</form>
-
-<h1>Hello, {name}!</h1>
+<p>{status}</p>
+<img src={url} alt="demo" />
