@@ -1,4 +1,5 @@
 <script>
+	import { enhance } from '$app/forms';
 	export let form;
 </script>
 
@@ -6,9 +7,11 @@
 	{#if form && form.status === true}
 		<p>{form.msg}</p>
 	{/if}
-	<form method="POST">
+	<form method="POST" action="?/create" use:enhance>
 		<label>Comment <input name="comment" type="text" /></label>
 		<button>Submit</button>
+		<button formaction="?/star">Star</button>
+		<button formaction="?/reply">Reply</button>
 	</form>
 </div>
 

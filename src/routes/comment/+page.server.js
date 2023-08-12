@@ -1,5 +1,5 @@
 export const actions = {
-	default: async (event) => {
+	create: async (event) => {
 		const form = await event.request.formData();
 		const url = event.url;
 		console.log(url);
@@ -10,5 +10,17 @@ export const actions = {
 				msg: `Your comment at ${url.hostname} has been received`
 			};
 		}
+	},
+	star: async () => {
+		return {
+			status: true,
+			msg: 'You starred this comment'
+		};
+	},
+	reply: async () => {
+		return {
+			status: true,
+			msg: 'You replied'
+		};
 	}
 };
