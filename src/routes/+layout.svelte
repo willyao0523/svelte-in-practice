@@ -1,5 +1,6 @@
 <script>
 	import '/src/reset.css';
+	import '/src/app.css';
 	import Nav from '$lib/Nav.svelte';
 	import Notify from '$lib/Notify.svelte';
 	export let data;
@@ -19,7 +20,10 @@
 		<slot />
 	</div>
 
-	<div class="footer">This is my footer</div>
+	<div class="footer">
+		This is my footer
+		<button class="px-2 bg-slate-500">Tailwind Button</button>
+	</div>
 </div>
 
 <style>
