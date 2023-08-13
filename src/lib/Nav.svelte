@@ -8,6 +8,7 @@
 		<li><a href="/api/post">API</a></li>
 		<li><a href="/login">Login</a></li>
 		<li><a href="/store">Store</a></li>
+		<li><a href="/github">Github</a></li>
 	</ul>
 </nav>
 
