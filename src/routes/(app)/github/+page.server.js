@@ -1,6 +1,12 @@
+import { error } from '@sveltejs/kit';
 const star_url = 'https://api.github.com/user/starred/sveltejs/kit';
 
 export function load({ fetch }) {
+	throw error(401, {
+		message: "You don't have permission to see this!",
+		id: crypto.randomUUID
+	});
+
 	const repo = fetch('https://api.github.com/repos/sveltejs/kit').then((response) =>
 		response.json()
 	);

@@ -1,4 +1,5 @@
 import { GITHUB } from '$env/static/private';
+import fs from 'fs';
 
 export async function handleFetch({ request, fetch }) {
 	if (request.url.startsWith('https://api.github.com')) {
@@ -14,4 +15,33 @@ export async function handle({ event, resolve }) {
 	const response = await resolve(event);
 	response.headers.set('X-ANOTHER-HEADER', 'something else');
 	return response;
+}
+
+function today() {
+	const current = new Date();
+	return (
+		current.getDate() +
+		'-' +
+		current.getDay() +
+		'-' +
+		current.getFullYear() +
+		'-' +
+		current.getHours() +
+		':' +
+		current.getMinutes() +
+		':' +
+		current.getSeconds()
+	);
+}
+
+export async function handleError({ error, event }) {
+	const log = today() + ' ' + error.message + ' @ ' + event.request.url;
+	fs.appendFile('./app.log', log + '\n', (err) => {
+		if (err) {
+			console.log(err);
+		}
+	});
+	return {
+		error: error.message
+	};
 }
