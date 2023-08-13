@@ -1,3 +1,7 @@
+<svelte:head>
+	<title>About</title>
+</svelte:head>
+
 <div class="wrapper">
 	<h1>About</h1>
 	<p>
