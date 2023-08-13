@@ -1,4 +1,5 @@
 <script>
+	import '/src/reset.css';
 	import Nav from '$lib/Nav.svelte';
 	import Notify from '$lib/Notify.svelte';
 	export let data;
